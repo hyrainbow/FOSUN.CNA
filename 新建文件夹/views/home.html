@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+
+    <meta name="description" content="复星集团大数据团队 stargazer 观星项目">
+    <meta name="keywords" content="复星集团, 大数据, 郭广昌, 梁信军">
+
+    <title><%=title%></title>
+    <script src="./build/profile.js"></script>
+
+</head>
+<body id="skin-blur-blue">
+
+<header id="header" class="media">
+    <a href="javascript:;" id="menu-toggle"></a>
+    <a class="logo pull-left" href="index.html">STARGAZER</a>
+
+    <div class="media-body">
+        <div class="media" id="top-menu">
+            <div class="pull-left tm-icon">
+                <a data-drawer="messages" class="drawer-toggle" href="">
+                    <i class="sa-top-infos"></i>
+                    <span>指标说明</span>
+                </a>
+            </div>
+            <!--                     <div class="pull-left tm-icon">
+                                    <a data-drawer="notifications" class="drawer-toggle" href="">
+                                        <i class="sa-top-message"></i>
+                                        <i class="n-count animated">3</i>
+                                        <span>突发事件</span>
+                                    </a>
+                                </div>
+             -->
+            <div id="time" class="pull-right">
+                <span id="hours"></span>
+                :
+                <span id="min"></span>
+                :
+                <span id="sec"></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="clearfix"></div>
+
+<section id="main" class="p-relative" role="main">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <!-- Sidbar Widgets -->
+        <div class="side-widgets">
+            <!-- Profile Menu -->
+            <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
+                <a href="javascript:;" data-toggle="dropdown">
+                    <img class="profile-pic animated" src="img/profile-pic.jpg" alt="">
+                </a>
+                <ul class="dropdown-menu profile-menu">
+                    <li><a href="javascript:;">用户信息</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                    <li><a href="javascript:;">通知消息</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                    <li><a href="javascript:;">设&nbsp;&nbsp;&nbsp;&nbsp;置</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                    <li><a href="javascript:;">退&nbsp;&nbsp;&nbsp;&nbsp;出</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
+                </ul>
+                <h4 class="m-0" style="font-size:16px;">复星集团</h4>
+                <span style="font-size: 11px;line-height:28px;">最后登陆日期: 2016-02-29</span>
+            </div>
+            <!-- Calendar -->
+            <div class="s-widget m-b-25">
+                <div id="sidebar-calendar"></div>
+            </div>
+            <!-- Feeds -->
+            <div class="s-widget m-b-25">
+                <h2 class="tile-title">
+                    突发事件
+                </h2>
+                <table id="emergencyTableId" class="table table-hover tile">
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Side Menu -->
+        <ul class="list-unstyled side-menu">
+            <li class="active">
+                <a class="sa-side-home" href="home-page.html">
+                    <span class="menu-item">系统首页</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a class="sa-side-chart" href="popular-feelings.html">
+                    <span class="menu-item">多维分析</span>
+                </a>
+                <ul class="list-unstyled menu-item">
+                    <li><a href="popular-feelings.html">舆情洞察</a></li>
+                    <li><a href="enterprises-index.html">企业指数</a></li>
+                    <li><a href="industry-analysis.html">行业热点</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="sa-side-table" href="data-search.html">
+                    <span class="menu-item">数据检索</span>
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a class="sa-side-ui" href="enterprise-manage.html">
+                    <span class="menu-item">设置管理</span>
+                </a>
+                <ul class="list-unstyled menu-item">
+                    <li><a href="enterprise-manage.html">企业管理</a></li>
+                    <li><a href="keyword-manage.html">词条管理</a></li>
+                    <li><a href="notice-user.html">通知方式管理</a></li>
+                    <li><a href="keyword-manage.html">媒体渠道管理</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="sa-side-page" href="report-manage.html">
+                    <span class="menu-item">报告下载</span>
+                </a>
+            </li>
+            <li>
+                <a class="sa-side-widget" href="user-manage.html">
+                    <span class="menu-item">用户中心</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Content -->
+    <section id="content" class="container">
+        <!-- Messages Drawer -->
+        <div id="messages" class="tile drawer animated">
+            <div class="listview narrow">
+                <div class="media">
+                    <a href="javascript:;">数据指标说明</a>
+                    <span class="drawer-close">&times;</span>
+                </div>
+                <div class="overflow" style="height: 254px">
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">情感指数</small><br>
+                            <span class="t-overflow">针对监测关键词的情绪&情感指数</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">媒体声量</small><br>
+                            <span class="t-overflow">取决于监测关键词相关的新闻数量</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">传播广度</small><br>
+                            <span class="t-overflow">取决于监测关键词相关新闻所属的媒体数量</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/4.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">搜索热度</small><br>
+                            <span class="t-overflow">取决于相关监测关键词在各大搜索引擎中的搜索频度</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/5.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">舆情指数</small><br>
+                            <span class="t-overflow">指综合情感指数、媒体声量、传播广度、搜索热度，得到的综合值，用于反应相关监测关键词的舆情波动，并方便找出波段数值和突发事件</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/6.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">影响力指数</small><br>
+                            <span class="t-overflow">指企业在互联网媒体的影响力</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">热点事件流</small><br>
+                            <span class="t-overflow">在指定行业中，一定的时间范围内出现的热点事件</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">行业相关性</small><br>
+                            <span class="t-overflow">指企业在指定行业中，热点事件/人物/产品与企业的相关性</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">突发事件</small><br>
+                            <span class="t-overflow">针对监测关键词，舆情模型判断出的重要负面新闻事件</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media text-center whiter l-100">
+                    <a data-drawer="messages" class="drawer-toggle" href="javascript:"><small>关&nbsp;&nbsp;闭</small></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Drawer -->
+        <div id="notifications" class="tile drawer animated" style="height: 208px">
+            <div class="listview narrow">
+                <div class="media">
+                    <a href="javascript:;">突发事件【2016-05-13】</a>
+                    <span class="drawer-close">&times;</span>
+                </div>
+                <div class="overflow" style="height: 154px">
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">突发事件</small><br>
+                            <span class="t-overflow">针对监测关键词，舆情模型判断出的重要负面新闻事件</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">突发事件</small><br>
+                            <span class="t-overflow">针对监测关键词，舆情模型判断出的重要负面新闻事件</span>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="pull-left">
+                            <img width="40" src="img/profile-pics/5.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <small class="text-muted" style="color:#00cccc;">突发事件</small><br>
+                            <span class="t-overflow">针对监测关键词，舆情模型判断出的重要负面新闻事件</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="media text-center whiter l-100">
+                    <a data-drawer="notifications" class="drawer-toggle" href="javascript:"><small>关&nbsp;&nbsp;闭</small></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 查询条件 BEGIN-->
+        <div class="block-area">
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="breadcrumb hidden-xs">
+                        <li class="active">系统首页</li>
+                    </ol>
+                    <table>
+                        <tr>
+                            <td>企业：</td>
+                            <td>
+                                <div class="btn-group m-b-5">
+                                    <button type="button" class="btn btn-sm">&nbsp;&nbsp;复星集团&nbsp;&nbsp;</button>
+                                </div>
+                            </td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td>时间：</td>
+                            <td>
+                                <div class="radio">
+                                    <label id="radioFor7Id">
+                                        <input type="radio" name="radio" checked>近7天&nbsp;&nbsp;
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="radio">
+                                    <label id="radioFor30Id">
+                                        <input type="radio" name="radio">近30天
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 查询条件 END-->
+
+        <hr class="whiter" />
+
+        <!-- Quick Stats -->
+        <div class="block-area">
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <div class="tile quick-stats">
+                        <div id="stats-line" class="pull-left"></div>
+                        <div class="data">
+                            <h2 id="staticId1" data-value="0">0</h2>
+                            <small style="font-size:12px;color:#ccc">情感指数</small>
+                            <div id="staticId1_status" class="status-up">0.00%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="tile quick-stats media">
+                        <div id="stats-line-2" class="pull-left"></div>
+                        <div class="media-body">
+                            <h2 id="staticId2" data-value="0">0</h2>
+                            <small style="font-size:12px;color:#ccc">媒体声量</small>
+                            <div id="staticId2_status" class="status-up">0.00%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="tile quick-stats media">
+                        <div id="stats-line-3" class="pull-left"></div>
+                        <div class="media-body">
+                            <h2 id="staticId3" data-value="0">0</h2>
+                            <small style="font-size:12px;color:#ccc">传播广度</small>
+                            <div id="staticId3_status" class="status-up">0.00%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <div class="tile quick-stats media">
+                        <div id="stats-line-4" class="pull-left"></div>
+                        <div class="media-body">
+                            <h2 id="staticId4" data-value="0">0</h2>
+                            <small style="font-size:12px;color:#ccc">搜索热度</small>
+                            <div id="staticId4_status" class="status-up">0.00%</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr class="whiter" />
+
+        <!-- 舆情指数 -->
+        <div class="block-area">
+            <div class="tile">
+                <h2 class="tile-title">舆情指数</h2>
+                <div class="p-0">
+                    <div id="mediaTableInfoId" class="chart-info hide-detail" style="top:68%;width:256px;right:10px;background-color:;color:#6c6c6c;padding:15px 15px 10px 7px;">
+                        <ul class="list-unstyled">
+                            <li class="m-b-10">
+                                        <span class="text-muted t-s-0">
+<!--                                       数据说明:<br/>
+ -->                                       垂直门户的数据是指网站转载数，社交媒体是指文章篇数，论坛社区是指帖子数，搜索引擎是指搜索次数。
+                                        </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-10">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="popularFeelingId" style="height:260px;"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div id="posAndNegIndexId" style="height:260px;"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <table id="statTableId" class="table table-hover tile">
+                                <thead style="background-color:#5a5048;">
+                                <tr>
+                                    <th>媒体类型</th>
+                                    <th>昨天</th>
+                                    <th>近7天</th>
+                                    <th>近30天</th>
+                                </tr>
+                                <thead>
+                                <tbody>
+                                <tr>
+                                    <td>垂直门户</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>社交媒体</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>论坛社区</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>搜索引擎</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <hr class="whiter" />
+
+        <!-- 企业指数 -->
+        <div class="block-area">
+            <div class="tile">
+                <h2 class="tile-title">企业指数</h2>
+                <div class="p-10">
+                    <div class="chart-info hide-detail" style="top:26%;right:58%;background:rgba(0,0,0,0);">
+                        <ul class="list-unstyled">
+                            <li class="m-b-10">
+                                        <span class="text-muted t-s-0" style="color:#fbe156;font-size:34px;">
+                                            <span id="eIndexPercent" class="fa fa-level-up" style="color:#da493e;"><b style="font-family:'Microsoft YaHei';"> 0.00%</b></span>
+                                        </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-0">
+                    <div class="row" style="padding-bottom:10px;">
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div id="gg1" class="gauge" style="height:160px;"></div>
+                                </div>
+                                <div class="col-md-3">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div id="gg2" class="gauge" style="height:120px;"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div id="gg3" class="gauge" style="height:120px;"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div id="gg4" class="gauge" style="height:120px;"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div id="gg5" class="gauge" style="height:120px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div id="influenceTendencyId" style="height:270px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <hr class="whiter" />
+
+        <!-- 行业热点 -->
+        <div id="industryHotId"></div>
+        <hr class="whiter" />
+    </section>
+
+</section>
+
+</body>
+</html>
